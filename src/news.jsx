@@ -14,10 +14,18 @@ const News = () => {
             once: true,
         });
 
-        // Fetch data dari API
-        fetch("https://newsapi.org/v2/everything?q=Unilever&language=en&apiKey=69875cd5393948188cedea2e4758edf3")
+       // Fetch data dari API
+    fetch('https://newsapi.org/v2/everything?q=Unilever&language=en&apiKey=69875cd5393948188cedea2e4758edf3')
         .then((response) => response.json())
-        .then((data) => setArticles(data.articles.slice(0, 10))); // Ambil 10 artikel
+        .then((data) => {
+            if (data.articles) {
+                setArticles(data.articles.slice(0, 10)); // Ambil 10 artikel
+            } else {
+                console.error("No articles found in the response.");
+            }
+        })
+        .catch((error) => console.error("Error fetching API:", error));
+
     }, []);
 
     return (

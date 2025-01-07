@@ -12,10 +12,7 @@ const Home = () => {
             once: true, 
         });
 
-        
-        fetch(
-            "https://newsapi.org/v2/everything?q=Unilever&%brand%&lan=en&apiKey=69875cd5393948188cedea2e4758edf3"
-        )
+        fetch("https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/everything?q=Unilever%Product%&language=en&apiKey=69875cd5393948188cedea2e4758edf3")
             .then((response) => response.json())
             .then((data) => setArticles(data.articles.slice(0, 3))); 
     }, []);
