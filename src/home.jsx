@@ -44,14 +44,14 @@ const Home = () => {
 
                         <div className="mt-8 flex flex-wrap gap-4 text-center">
                             <a
-                                href="#"
+                                href="/product"
                                 className="block w-full rounded bg-blue-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-blue-700 focus:outline-none focus:ring active:bg-blue-500 sm:w-auto"
                             >
                                 Explore Our Products
                             </a>
 
                             <a
-                                href="#"
+                                href="/about"
                                 className="block w-full rounded bg-white px-12 py-3 text-sm font-medium text-blue-600 shadow hover:text-blue-700 focus:outline-none focus:ring active:text-blue-500 sm:w-auto"
                             >
                                 Get Know Us
