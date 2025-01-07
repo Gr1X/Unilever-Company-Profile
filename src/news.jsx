@@ -9,13 +9,13 @@ const News = () => {
     useEffect(() => {
         // Inisialisasi AOS
         AOS.init({
-            duration: 800, // Durasi animasi
-            easing: "ease-in-out", // Jenis easing
-            once: true, // Animasi hanya terjadi sekali
+            duration: 800,
+            easing: "ease-in-out",
+            once: true,
         });
 
         // Fetch data dari API
-        fetch("https://newsapi.org/v2/everything?q=Unilever%Product%&language=en&apiKey=69875cd5393948188cedea2e4758edf3")
+        fetch("https://newsapi.org/v2/everything?q=Unilever&language=en&apiKey=69875cd5393948188cedea2e4758edf3")
         .then((response) => response.json())
         .then((data) => setArticles(data.articles.slice(0, 10))); // Ambil 10 artikel
     }, []);
@@ -37,8 +37,8 @@ const News = () => {
                         <div
                             key={index}
                             className="bg-white rounded shadow overflow-hidden"
-                            data-aos="fade-up" // Efek animasi
-                            data-aos-delay={index * 100} // Delay berdasarkan index
+                            data-aos="fade-up" 
+                            data-aos-delay={index * 100}
                         >
                             {/* Gambar Berita */}
                             {article.urlToImage && (
@@ -54,7 +54,7 @@ const News = () => {
                                     {article.title}
                                 </h3>
                                 <p className="text-sm text-gray-600 mt-2">
-                                    {article.description?.slice(0, 100)}... {/* Potong deskripsi */}
+                                    {article.description?.slice(0, 100)}...
                                 </p>
                                 <a
                                     href={article.url}
