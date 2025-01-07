@@ -51,7 +51,7 @@ const Home = () => {
                             </a>
 
                             <a
-                                href="/about"
+                                href="/aboutus"
                                 className="block w-full rounded bg-white px-12 py-3 text-sm font-medium text-blue-600 shadow hover:text-blue-700 focus:outline-none focus:ring active:text-blue-500 sm:w-auto"
                             >
                                 Get Know Us
