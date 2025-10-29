@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+# React Company Profile Website (Unilever Dummy)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a functional, multi-page dummy company profile website built for Unilever. It was created as a submission for an Assistant Lab Lecturer (Aslab) test for the "Introduction to Internet Technology" course.
 
-## Available Scripts
+The application is built entirely on the front-end using React, React Router for navigation, and Tailwind CSS for styling. It demonstrates proficiency in component-based architecture, API integration, and modern UI/UX practices (like scroll animations).
 
-In the project directory, you can run:
+## ✨ Key Features
 
-### `npm start`
+* **5-Page SPA Navigation:** Uses React Router to create a seamless single-page application experience across five distinct pages: Home, About Us, Products, News, and Contact.
+* **Dynamic Content (API Integration):**
+    * **Products Page:** Fetches 25 product listings from the `dummyjson.com` API and displays them in a responsive grid.
+    * **News Page:** Fetches the 10 latest articles related to "Unilever" from the `newsapi.org` API.
+    * **Home Page:** Fetches 3 articles from `newsapi.org` to display in the "Latest News" section.
+* **Reusable Component Architecture:**
+    * `Navbar`: A dynamic, fixed navbar that changes from transparent to a solid blue background (and swaps logos) on scroll.
+    * `Footer`: A consistent footer component with navigation links, contact info, and social media icons.
+    * `Banner`: A reusable banner component used across all sub-pages (`About`, `News`, `Products`, `Contact`) to display titles and subtitles with a background image.
+* **Modern UI/UX:**
+    * **Scroll Animations:** Implements the `AOS` (Animate On Scroll) library to add engaging "fade-up" and "zoom-in" animations as the user scrolls.
+    * **Responsive Design:** Fully responsive layout using Tailwind CSS utility classes.
+* **Static Pages:** Includes comprehensive, hardcoded pages for "About Us" (Mission, History, Values) and "Contact Us" (Address, Email, Map Embed).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🛠️ Tech Stack
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* **Core:** React.js
+* **Routing:** React Router (`react-router-dom`)
+* **Styling:** Tailwind CSS
+* **Animations:** AOS (Animate on Scroll)
+* **APIs:**
+    * NewsAPI (for fetching articles)
+    * DummyJSON (for fetching products)
 
-### `npm test`
+## 📁 Project Structure
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+'''
+src/ ├── component/ │ ├── banner.jsx # Reusable banner for page headers │ ├── footer.jsx # Site-wide footer │ └── navbar.jsx # Site-wide dynamic navigation bar │ ├── about.jsx # The "About Us" page ├── contactus.js # The "Contact Us" page ├── home.jsx # The main "Home" landing page ├── news.jsx # The "News" page (fetches from NewsAPI) ├── product.jsx # The "Products" page (fetches from DummyJSON) │ ├── App.js # Main component, defines all routes ├── index.css # Tailwind CSS setup └── index.js # React app entry point
+'''
 
-### `npm run build`
+## ⚠️ API Key Note
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The `news.jsx` and `home.jsx` components use a hardcoded API key for NewsAPI. For a real-world production environment, this key should be stored securely in a `.env` file and accessed via environment variables.
