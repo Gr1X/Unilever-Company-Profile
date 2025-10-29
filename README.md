@@ -30,12 +30,6 @@ The application is built entirely on the front-end using React, React Router for
     * NewsAPI (for fetching articles)
     * DummyJSON (for fetching products)
 
-## 📁 Project Structure
-
-'''
-src/ ├── component/ │ ├── banner.jsx # Reusable banner for page headers │ ├── footer.jsx # Site-wide footer │ └── navbar.jsx # Site-wide dynamic navigation bar │ ├── about.jsx # The "About Us" page ├── contactus.js # The "Contact Us" page ├── home.jsx # The main "Home" landing page ├── news.jsx # The "News" page (fetches from NewsAPI) ├── product.jsx # The "Products" page (fetches from DummyJSON) │ ├── App.js # Main component, defines all routes ├── index.css # Tailwind CSS setup └── index.js # React app entry point
-'''
-
 ## ⚠️ API Key Note
 
 The `news.jsx` and `home.jsx` components use a hardcoded API key for NewsAPI. For a real-world production environment, this key should be stored securely in a `.env` file and accessed via environment variables.
