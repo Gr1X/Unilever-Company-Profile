@@ -1,28 +1,28 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./home"; 
-import Products from "./product";
-import News  from "./news";
-import Contact from "./contactus";
-import AboutUs from "./about";
-import Navbar from "./component/navbar";
-import Footer from "./component/footer";
+import Home from "./pages/Home"; 
+import Products from "./pages/Product";
+import News  from "./pages/News";
+import Contact from "./pages/Contact";
+import AboutUs from "./pages/About";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Layout from "./components/Layout";
 
 const App = () => {
   return (
     <Router>
-      <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/product" element={<Products />} />
-        <Route path="/news" element={<News />} />
-        <Route path="/aboutus" element={<AboutUs />} />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="product" element={<Products />} /> 
+          <Route path="news" element={<News />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="aboutus" element={<AboutUs />} />
+        </Route>
       </Routes>
-      <Footer />
     </Router>
   );
 };
 
 export default App;
-

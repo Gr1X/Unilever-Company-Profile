@@ -1,5 +1,5 @@
 import React from "react";
-import Banner from "./component/banner";
+import Banner from "../components/Banner";
 
 const AboutUs = () => {
     return (
@@ -18,9 +18,9 @@ const AboutUs = () => {
                         Our Mission & Vision
                         </h2>
                         <p className="mt-4 text-gray-700 leading-relaxed">
-                        At Unilever, our mission is to make sustainable living commonplace.
-                        We aim to improve the health and well-being of people worldwide,
-                        reduce environmental impact, and enhance the livelihoods of millions.
+                            At Unilever, our mission is to make sustainable living commonplace.
+                            We aim to improve the health and well-being of people worldwide,
+                            reduce environmental impact, and enhance the livelihoods of millions.
                         </p>
                     </div>
                     <div className="relative w-1/2 h-full">

@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Link } from "react-router-dom"; // <-- 1. DITAMBAHKAN: Untuk navigasi
+import useFetchNews from "../hooks/useFetchNews"; // <-- 2. DITAMBAHKAN: Hook baru kita
+
 
 const Home = () => {
-    const [articles, setArticles] = useState([]);
 
+    const { articles, isLoading } = useFetchNews('Unilever', 3);
+
+    // 4. DIUBAH: useEffect ini sekarang HANYA untuk AOS
     useEffect(() => {
-        
         AOS.init({
             duration: 1000,
-            once: true, 
+            once: true,
         });
+    }, []); 
 
-        fetch("https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/everything?q=Unilever%Product%&language=en&apiKey=69875cd5393948188cedea2e4758edf3")
-            .then((response) => response.json())
-            .then((data) => setArticles(data.articles.slice(0, 3))); 
-    }, []);
 
     return (
         <div className="overflow-hidden"> 
@@ -25,10 +26,12 @@ const Home = () => {
                 data-aos="fade-in"
             >
                 {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-r from-gray-200/100 via-transparent to-blue-900/30"></div>
+                <div className="absolute inset-0 bg-gradient-to-r 
+                from-gray-200/100 via-transparent to-blue-900/30"></div>
 
                 {/* Content */}
-                <div className="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-end lg:px-8">
+                <div className="relative mx-auto max-w-screen-xl px-4 py-32 
+                    sm:px-6 lg:flex lg:h-screen lg:items-end lg:px-8">
                     <div className="max-w-xl text-center lg:text-start">
                         <h1 className="text-3xl font-extrabold sm:text-5xl lg:text-6xl">
                             Welcome to
@@ -36,23 +39,28 @@ const Home = () => {
                         </h1>
 
                         <p className="mt-4 max-w-lg text-gray-700 sm:text-xl">
-                            At Unilever, we are committed to making sustainable living commonplace through our innovative products and impactful initiatives.
+                            At Unilever, we are committed to making sustainable living 
+                            commonplace through our innovative products and impactful initiatives.
                         </p>
 
                         <div className="mt-8 flex flex-wrap gap-4 text-center">
-                            <a
+                            <Link
                                 href="/product"
-                                className="block w-full rounded bg-blue-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-blue-700 focus:outline-none focus:ring active:bg-blue-500 sm:w-auto"
+                                className="block w-full rounded bg-blue-600 px-12 py-3 
+                                text-sm font-medium text-white shadow hover:bg-blue-700 
+                                focus:outline-none focus:ring active:bg-blue-500 sm:w-auto"
                             >
                                 Explore Our Products
-                            </a>
+                            </Link>
 
-                            <a
+                            <Link 
                                 href="/aboutus"
-                                className="block w-full rounded bg-white px-12 py-3 text-sm font-medium text-blue-600 shadow hover:text-blue-700 focus:outline-none focus:ring active:text-blue-500 sm:w-auto"
+                                className="block w-full rounded bg-white px-12 py-3 
+                                text-sm font-medium text-blue-600 shadow hover:text-blue-700 
+                                focus:outline-none focus:ring active:text-blue-500 sm:w-auto"
                             >
                                 Get Know Us
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -104,28 +112,34 @@ const Home = () => {
                     </div>
 
                     <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {articles.map((article, index) => (
-                            <div key={index} className="bg-gray-100 p-6 rounded-lg shadow" data-aos="fade-in">
-                                <img
-                                    src={article.urlToImage}
-                                    alt={article.title}
-                                    className="h-40 w-full object-cover rounded-lg"
-                                />
-                                <h3 className="mt-4 text-xl font-bold text-gray-900">{article.title}</h3>
-                                <p className="mt-2 text-gray-700">{article.description}</p>
-                                <a
-                                    href={article.url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="mt-4 block text-blue-600 font-medium"
-                                >
-                                    Read More
-                                </a>
-                            </div>
-                        ))}
+                        {/* 6. DIPERBAIKI: Menambahkan loading state */}
+                        {isLoading ? (
+                            <p className="col-span-3 text-center text-gray-600">Loading latest news...</p>
+                        ) : (
+                            articles.map((article) => (
+                                // 7. DIPERBAIKI: Menggunakan key yang lebih stabil (article.url)
+                                <div key={article.url} className="bg-gray-100 p-6 rounded-lg shadow" data-aos="fade-in">
+                                    <img
+                                        src={article.urlToImage}
+                                        alt={article.title}
+                                        className="h-40 w-full object-cover rounded-lg"
+                                    />
+                                    <h3 className="mt-4 text-xl font-bold text-gray-900">{article.title}</h3>
+                                    <p className="mt-2 text-gray-700">{article.description}</p>
+                                    <a
+                                        href={article.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="mt-4 block text-blue-600 font-medium"
+                                    >
+                                        Read More
+                                    </a>
+                                </div>
+                            ))
+                        )}
                     </div>
                 </div>
-            </section>
+            </section>``
 
             {/* Fakta Menarik */}
             <section className="relative bg-blue-100 p-12 rounded shadow-lg" data-aos="zoom-in">

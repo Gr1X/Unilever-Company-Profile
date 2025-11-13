@@ -1,5 +1,5 @@
 import React from "react";
-import Banner from "./component/banner";
+import Banner from "../components/Banner";
 
 const Contact = () => {
     return (
@@ -39,7 +39,7 @@ const Contact = () => {
                             <i className="fas fa-map-marker-alt text-blue-600 text-2xl mr-4"></i>
                             <p>
                             <strong>Address:</strong> Green Office Park 1, BSD City,
-                            Tangerang
+                                Tangerang
                             </p>
                         </div>
                         <div className="flex items-center">

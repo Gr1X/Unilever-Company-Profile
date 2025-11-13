@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Banner from "./component/banner";
+import Banner from "../components/Banner";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
